@@ -173,9 +173,9 @@ class Controller(object):
                 response = self.handle_control(query['req'], query['worker_id'])
 
             self.csocket.send(json.dumps(response))
+        
         self.csocket.close()
-
-
+                
 class Worker(object):
     """
     Worker object. Each worker should have one instance of this class.
@@ -485,8 +485,10 @@ class Worker(object):
     def close(self):
         if hasattr(self, 'asocket'):
             self.asocket.close()
+            print 'worker: asocket closed'
         if hasattr(self, 'csocket'):
             self.csocket.close()
+            print 'worker: csocket closed'
         if hasattr(self, '_shmref'):
             self._lock.close()
             try:
@@ -497,3 +499,4 @@ class Worker(object):
                 self._shmref.unlink()
             except posix_ipc.ExistentialError:
                 pass
+            print 'worker: shared mem unlinked'

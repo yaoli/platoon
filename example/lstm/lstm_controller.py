@@ -3,7 +3,8 @@ import time
 
 import os
 import sys
-
+import zmq
+    
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 from platoon.channel import Controller
 

@@ -6,7 +6,6 @@ import time
 import argparse
 import subprocess
 
-
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Launcher for multi-GPU mini-framework. Ex: {} lstm gpu0 gpu3".format(os.path.basename(__file__)))
     parser.add_argument('experiment_name', help='The name of your experiment. The launcher will expect to find the files <experiment_name>_controller.py and <experiment_name>_worker.py.')

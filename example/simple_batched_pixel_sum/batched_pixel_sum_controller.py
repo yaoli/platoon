@@ -42,7 +42,8 @@ class BatchedPixelSumController(Controller):
         print "Done Sending MB."
 
         # TODO: Find a solution for this
-        # Sleeping to give the chance to the worker to empty the queue before the MB process dies
+        # Sleeping to give the chance to the worker to empty the queue
+        # before the MB process dies
         import time
         time.sleep(2)
 
